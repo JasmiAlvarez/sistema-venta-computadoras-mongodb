@@ -1,0 +1,11 @@
+﻿Estudiante: Jasmi Janeli Alvarez Caisahuana
+Carrera: Ingeniería de Sistemas e Informática
+Asignatura: Base de Datos
+Fecha: 01/11/2026
+Proyecto: Sistema para Venta de Computadoras - MongoDB, Node.js, Express y Mongoose
+URL del Repositorio GitHub: [PENDIENTE: colocar la URL real del repositorio público]
+
+Base de datos principal: MongoDB Atlas
+Colecciones: productos, clientes, proveedores, ventas
+Funcionalidades: CRUD, relaciones con ObjectId, documentos embebidos, índices, transacciones de venta, reportes con agregaciones.
+Documentación: README.md, docs/modelo_mongodb.md, docs/diccionario_datos.md, docs/consultas_agregacion.md, docs/diagrama_er.mmd y routes/endpoints.md

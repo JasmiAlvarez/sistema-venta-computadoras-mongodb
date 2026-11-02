@@ -1,0 +1,31 @@
+{
+  "name": "venta-de-computadoras-mongodb",
+  "version": "1.0.0",
+  "description": "Sistema para Venta de Computadoras con Node.js, Express, Mongoose y MongoDB Atlas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node scripts/seed.js",
+    "verify": "node scripts/verificar.js"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "express",
+    "nodejs",
+    "ventas",
+    "computadoras"
+  ],
+  "author": "Jasmi Janeli Alvarez Caisahuana",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^4.22.3",
+    "mongoose": "^9.11.4"
+  }
+}

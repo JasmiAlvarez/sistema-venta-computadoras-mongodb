@@ -1,0 +1,117 @@
+﻿%% Diagrama de colecciones MongoDB - Sistema para Venta de Computadoras
+%% Las relaciones con ObjectId se muestran con lineas continuas.
+%% Las relaciones "embebe" representan documentos embebidos, no colecciones independientes.
+
+erDiagram
+    PROVEEDORES ||--o{ PRODUCTOS : "suministra (ObjectId)"
+    CLIENTES ||--o{ VENTAS : "realiza (ObjectId)"
+    VENTAS ||--|{ DETALLE_VENTA : "embebe"
+    VENTAS ||--|| VENDEDOR : "embebe"
+    PRODUCTOS ||--|| ESPECIFICACIONES : "embebe"
+    CLIENTES ||--|| DIRECCION_CLIENTE : "embebe"
+    PROVEEDORES ||--|| CONTACTO_PROVEEDOR : "embebe"
+    PROVEEDORES ||--|| DIRECCION_PROVEEDOR : "embebe"
+    PRODUCTOS ||--o{ DETALLE_VENTA : "referenciado (ObjectId)"
+
+    PROVEEDORES {
+        ObjectId _id PK
+        String razonSocial
+        String ruc UK
+        Object contacto
+        Object direccion
+        String estado
+        Date createdAt
+        Date updatedAt
+    }
+
+    CONTACTO_PROVEEDOR {
+        String nombre
+        String telefono
+        String email
+    }
+
+    DIRECCION_PROVEEDOR {
+        String calle
+        String ciudad
+        String departamento
+        String pais
+    }
+
+    PRODUCTOS {
+        ObjectId _id PK
+        String codigo UK
+        String nombre
+        String descripcion
+        String categoria
+        String marca
+        ObjectId proveedor FK
+        Object especificaciones
+        Number precioCompra
+        Number precioVenta
+        Number stock
+        Number stockMinimo
+        String estado
+        Date createdAt
+        Date updatedAt
+    }
+
+    ESPECIFICACIONES {
+        String procesador
+        String ram
+        String almacenamiento
+        String tarjetaGrafica
+        String pantalla
+        String sistemaOperativo
+    }
+
+    CLIENTES {
+        ObjectId _id PK
+        String tipoDocumento
+        String numeroDocumento UK
+        String nombres
+        String apellidos
+        String email
+        String telefono
+        Object direccion
+        String estado
+        Date createdAt
+        Date updatedAt
+    }
+
+    DIRECCION_CLIENTE {
+        String calle
+        String ciudad
+        String departamento
+        String pais
+    }
+
+    VENTAS {
+        ObjectId _id PK
+        String numeroVenta UK
+        ObjectId cliente FK
+        Object vendedor
+        Date fechaVenta
+        Array detalles
+        Number subtotal
+        Number igv
+        Number total
+        String estado
+        String observaciones
+        Date createdAt
+        Date updatedAt
+    }
+
+    VENDEDOR {
+        String nombre
+        String documento
+        String cargo
+    }
+
+    DETALLE_VENTA {
+        ObjectId producto FK
+        String codigoProducto
+        String nombreProducto
+        Number cantidad
+        Number precioUnitario
+        Number subtotal
+    }
